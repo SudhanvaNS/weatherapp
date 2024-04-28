@@ -1,4 +1,4 @@
-const apikey = "b253f9e572c673f974cfe3cef307c670";
+const apikey = "48acc405f87a23cbba6f6d4d8913d210";
 
 const weatherDataEl = document.getElementById("weather-data");
 
@@ -8,7 +8,9 @@ const formEl = document.querySelector("form");
 
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
+  // console.log("submit button pressed");
   const cityValue = cityInputEl.value;
+  console.log(cityValue)
   getWeatherData(cityValue);
 });
 
@@ -21,7 +23,7 @@ async function getWeatherData(cityValue) {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-
+    // console.log(response)
     const data = await response.json();
 
     const temperature = Math.round(data.main.temp);
